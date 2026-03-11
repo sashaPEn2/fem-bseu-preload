@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>ФЭМ БГЭУ — Панель управления</title>
+  <link rel="stylesheet" href="https://unpkg.com/decap-cms@^3.0.0/dist/cms.css" />
+  <style>
+    /* Custom branding for the CMS panel */
+    :root {
+      --blue: #0A2D6E;
+      --red: #C0132A;
+    }
+  </style>
+</head>
+<body>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/cms.js"></script>
+  <script>
+    // Register custom preview styles
+    CMS.registerPreviewStyle('/css/main.css');
+  </script>
+</body>
+</html>

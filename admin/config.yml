@@ -1,0 +1,132 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Uncomment below for local development without GitHub auth:
+# local_backend: true
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+site_url: https://your-site.netlify.app
+display_url: https://your-site.netlify.app
+
+locale: ru
+
+collections:
+  # ── SITE SETTINGS (singleton) ──────────────────
+  - name: "settings"
+    label: "⚙️ Настройки сайта"
+    files:
+      - name: "general"
+        label: "Основные настройки"
+        file: "_data/settings.json"
+        fields:
+          - { label: "Название факультета", name: "faculty_name", widget: "string", default: "Факультет экономики и менеджмента" }
+          - { label: "Аббревиатура", name: "faculty_abbr", widget: "string", default: "ФЭМ" }
+          - { label: "Университет", name: "university", widget: "string", default: "БГЭУ" }
+          - { label: "Email факультета", name: "email", widget: "string", default: "fem@bseu.by" }
+          - { label: "Телефон", name: "phone", widget: "string", default: "+375 17 209-79-42" }
+          - { label: "Адрес", name: "address", widget: "string", default: "г. Минск, пр. Партизанский, 26" }
+          - label: "Статистика"
+            name: "stats"
+            widget: "list"
+            fields:
+              - { label: "Число", name: "number", widget: "string" }
+              - { label: "Подпись", name: "label", widget: "string" }
+          - label: "Бегущая строка (объявления)"
+            name: "ticker"
+            widget: "list"
+            field: { label: "Объявление", name: "item", widget: "string" }
+          - label: "Партнёры"
+            name: "partners"
+            widget: "list"
+            field: { label: "Название партнёра", name: "name", widget: "string" }
+
+      - name: "dean"
+        label: "Декан"
+        file: "_data/dean.json"
+        fields:
+          - { label: "ФИО", name: "name", widget: "string" }
+          - { label: "Должность и степень", name: "position", widget: "string" }
+          - { label: "Цитата", name: "quote", widget: "text" }
+          - { label: "Фото декана", name: "photo", widget: "image", required: false }
+
+      - name: "hero"
+        label: "Главный экран (Hero)"
+        file: "_data/hero.json"
+        fields:
+          - { label: "Заголовок строка 1", name: "line1", widget: "string", default: "Факультет" }
+          - { label: "Заголовок строка 2 (курсив/акцент)", name: "line2", widget: "string", default: "экономики" }
+          - { label: "Заголовок строка 3", name: "line3", widget: "string", default: "и менеджмента" }
+          - { label: "Описание", name: "description", widget: "text" }
+          - { label: "Кнопка 1 — текст", name: "btn1_text", widget: "string", default: "Программы обучения" }
+          - { label: "Кнопка 1 — ссылка", name: "btn1_url", widget: "string", default: "#programs" }
+          - { label: "Кнопка 2 — текст", name: "btn2_text", widget: "string", default: "О факультете" }
+          - { label: "Кнопка 2 — ссылка", name: "btn2_url", widget: "string", default: "#about" }
+
+  # ── NEWS ───────────────────────────────────────
+  - name: "news"
+    label: "📰 Новости"
+    label_singular: "Новость"
+    folder: "content/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - { label: "Дата публикации", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD.MM.YYYY", time_format: false }
+      - label: "Категория"
+        name: "category"
+        widget: "select"
+        options: ["Наука", "Мероприятие", "Партнёрство", "Учёба", "Студентам", "Объявление"]
+        default: "Новость"
+      - { label: "Краткое описание", name: "excerpt", widget: "text" }
+      - { label: "Полный текст", name: "body", widget: "markdown", required: false }
+      - { label: "Изображение", name: "image", widget: "image", required: false }
+      - { label: "На главную (избранное)", name: "featured", widget: "boolean", default: false }
+      - { label: "Опубликовано", name: "published", widget: "boolean", default: true }
+
+  # ── EVENTS ─────────────────────────────────────
+  - name: "events"
+    label: "📅 События"
+    label_singular: "Событие"
+    folder: "content/events"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Название", name: "title", widget: "string" }
+      - { label: "Дата события", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD.MM.YYYY", time_format: false }
+      - { label: "День (для отображения)", name: "day_display", widget: "string", hint: "Например: 15" }
+      - { label: "Месяц (для отображения)", name: "month_display", widget: "string", hint: "Например: Марта" }
+      - { label: "Время", name: "time", widget: "string", required: false, hint: "Например: 11:00" }
+      - label: "Тип события"
+        name: "type"
+        widget: "select"
+        options: ["Конференция", "Олимпиада", "Мастер-класс", "Абитуриентам", "Наука", "Студентам", "Семинар"]
+      - { label: "Описание", name: "description", widget: "text", required: false }
+      - { label: "Ссылка / регистрация", name: "link", widget: "string", required: false }
+      - { label: "Опубликовано", name: "published", widget: "boolean", default: true }
+
+  # ── PROGRAMS ───────────────────────────────────
+  - name: "programs"
+    label: "🎓 Программы обучения"
+    label_singular: "Программа"
+    folder: "content/programs"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Название", name: "title", widget: "string" }
+      - label: "Уровень"
+        name: "level"
+        widget: "select"
+        options: ["Бакалавриат", "Магистратура", "Аспирантура", "Доп. образование"]
+      - { label: "Срок обучения", name: "duration", widget: "string", hint: "Например: 4 года" }
+      - { label: "Иконка (emoji)", name: "icon", widget: "string", default: "📊" }
+      - { label: "Описание", name: "description", widget: "text" }
+      - label: "Формы обучения"
+        name: "forms"
+        widget: "list"
+        field: { label: "Форма", name: "form", widget: "string" }
+      - { label: "Избранная (большая карточка)", name: "featured", widget: "boolean", default: false }
+      - { label: "Порядок отображения", name: "order", widget: "number", default: 0 }
+      - { label: "Опубликовано", name: "published", widget: "boolean", default: true }

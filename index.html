@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ФЭМ БГЭУ — Факультет экономики и менеджмента</title>
+<link rel="stylesheet" href="css/main.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a class="nav-brand" href="/">
+    <div class="nav-logo-box">
+      <svg viewBox="0 0 24 24"><path d="M3 3h7v7H3zm11 0h7v7h-7zM3 14h7v7H3zm11 3h2v-2h2v2h2v2h-2v2h-2v-2h-2z"/></svg>
+    </div>
+    <div class="nav-brand-text">
+      <div class="nav-brand-title" id="navTitle">ФЭМ · БГЭУ</div>
+      <div class="nav-brand-sub" id="navSub">Факультет экономики и менеджмента</div>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#programs">Образование</a>
+    <a href="#news">Новости</a>
+    <a href="#events">События</a>
+    <a href="#dean">О факультете</a>
+    <a href="#contacts">Контакты</a>
+  </div>
+  <a class="nav-apply" href="#programs">Поступить</a>
+  <button class="nav-burger" id="navBurger" onclick="toggleMobile()">☰</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-red-stripe"></div>
+  <div class="hero-left">
+    <div class="hero-eyebrow">Белорусский государственный экономический университет</div>
+    <h1 class="hero-h1">
+      <span id="heroLine1">Факультет</span><br>
+      <span class="accent" id="heroLine2">экономики</span><br>
+      <span id="heroLine3">и менеджмента</span>
+    </h1>
+    <p class="hero-lead" id="heroDesc">Готовим специалистов нового поколения — аналитиков, управленцев и предпринимателей, способных работать в условиях динамичной глобальной экономики.</p>
+    <div class="hero-btns">
+      <a class="btn-red" id="heroBtn1" href="#programs">Программы обучения</a>
+      <a class="btn-outline" id="heroBtn2" href="#dean">О факультете</a>
+    </div>
+    <div class="hero-stats" id="heroStats">
+      <div><div class="hero-stat-num">4200<span>+</span></div><div class="hero-stat-label">студентов</div></div>
+      <div><div class="hero-stat-num">18</div><div class="hero-stat-label">специальностей</div></div>
+      <div><div class="hero-stat-num">85<span>%</span></div><div class="hero-stat-label">трудоустройство</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="news-widget">
+      <div class="news-widget-header">
+        <span>Последние новости</span>
+        <div class="cms-dot" title="CMS подключена"></div>
+      </div>
+      <div class="news-widget-body" id="heroNewsWidget">
+        <div class="news-widget-item"><div class="nwi-skeleton"></div><div class="nwi-skeleton short"></div></div>
+        <div class="news-widget-item"><div class="nwi-skeleton"></div><div class="nwi-skeleton short"></div></div>
+        <div class="news-widget-item"><div class="nwi-skeleton"></div><div class="nwi-skeleton short"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker"><div class="ticker-inner" id="tickerInner"></div></div>
+
+<!-- PROGRAMS -->
+<section class="section" id="programs">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="tag">Образование</div>
+        <h2 class="section-title">Программы<br><em>подготовки</em></h2>
+      </div>
+      <p class="section-desc">От фундаментальной экономической теории до прикладных инструментов управления — наши программы ориентированы на реальные задачи рынка труда.</p>
+    </div>
+    <div class="programs-grid" id="programsGrid">
+      <div class="prog-skeleton"></div>
+      <div class="prog-skeleton"></div>
+      <div class="prog-skeleton"></div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="section section-alt" id="news">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="tag">Жизнь факультета</div>
+        <h2 class="section-title">Новости<br><em>и события</em></h2>
+      </div>
+      <div>
+        <div class="cms-status" id="cmsStatus">
+          <div class="cms-dot"></div>
+          <span>Загрузка из CMS...</span>
+        </div>
+        <p class="section-desc">Контент управляется через <strong>Decap CMS</strong>. Откройте <a href="/admin/" style="color:var(--red);">/admin/</a> для редактирования.</p>
+      </div>
+    </div>
+    <div class="news-cms-grid" id="newsGrid">
+      <div class="news-feat" style="min-height:280px;display:flex;align-items:center;justify-content:center;">
+        <div class="loading-text">ЗАГРУЗКА...</div>
+      </div>
+      <div class="news-side"></div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section class="section section-blue" id="events">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="tag red-on-blue">Календарь</div>
+        <h2 class="section-title light">Ближайшие<br><em>мероприятия</em></h2>
+      </div>
+      <p class="section-desc muted-light">Конференции, олимпиады, мастер-классы от практиков бизнеса и события студенческой жизни факультета.</p>
+    </div>
+    <div class="events-row" id="eventsRow">
+      <div class="ev-skeleton"></div>
+      <div class="ev-skeleton"></div>
+      <div class="ev-skeleton"></div>
+      <div class="ev-skeleton"></div>
+    </div>
+  </div>
+</section>
+
+<!-- DEAN -->
+<section class="section" id="dean">
+  <div class="container">
+    <div class="dean-wrap">
+      <div class="dean-photo" id="deanPhotoWrap">
+        <div class="dean-photo-placeholder">
+          <span style="font-size:56px;">👤</span>
+          <span class="dean-photo-label">Фото декана</span>
+        </div>
+      </div>
+      <div>
+        <div class="tag">Слово декана</div>
+        <div class="dean-qs">"</div>
+        <p class="dean-q" id="deanQuote">Наш факультет — это не просто место получения знаний...</p>
+        <div class="dean-name" id="deanName">...</div>
+        <div class="dean-pos" id="deanPos">...</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<div class="partners-bar">
+  <div class="partners-label">Партнёры и работодатели</div>
+  <div class="partners-logos" id="partnersRow"></div>
+</div>
+
+<!-- FOOTER -->
+<footer id="contacts">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-row">
+        <div class="nav-logo-box small"><svg viewBox="0 0 24 24" fill="white"><path d="M3 3h7v7H3zm11 0h7v7h-7zM3 14h7v7H3zm11 3h2v-2h2v2h2v2h-2v2h-2v-2h-2z"/></svg></div>
+        <div>
+          <div class="footer-title" id="footerTitle">ФЭМ · БГЭУ</div>
+          <div class="footer-sub" id="footerSub">Факультет экономики и менеджмента</div>
+        </div>
+      </div>
+      <p class="footer-about">Один из крупнейших экономических факультетов Республики Беларусь. Основан в 1933 году.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Обучение</div>
+      <div class="footer-links">
+        <a href="#programs">Бакалавриат</a>
+        <a href="#programs">Магистратура</a>
+        <a href="#programs">Аспирантура</a>
+        <a href="#programs">Доп. образование</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Факультет</div>
+      <div class="footer-links">
+        <a href="#dean">О факультете</a>
+        <a href="#news">Новости</a>
+        <a href="#events">События</a>
+        <a href="/admin/">CMS-панель</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Контакты</div>
+      <div class="footer-links" id="footerContacts">
+        <a href="#">г. Минск, пр. Партизанский, 26</a>
+        <a href="#">+375 17 209-79-42</a>
+        <a href="#">fem@bseu.by</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy" id="footerCopy">© 2025 БГЭУ · Факультет экономики и менеджмента</div>
+    <div class="footer-copy">Powered by <a href="https://decapcms.org" style="color:var(--red-mid);text-decoration:none;">Decap CMS</a> + Netlify</div>
+  </div>
+</footer>
+
+<script src="js/cms-loader.js"></script>
+</body>
+</html>
